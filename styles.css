@@ -8,28 +8,38 @@ header{
 }
 header img {
     margin: .5rem;
+
+    /* Hacemos que la imagen flote a la izquierda */
     float: left;
 }
 header label{
+    /* Hacemos que la futura "hamburguesa" flote a la derecha */
     float: right;
+
     cursor: pointer;
 }
+/* Creamos la línea del medio de la "hamburguesa" */
 header label span{
     display: block;
+    /* Le damos posición relativa pra que las "fururas líneas (superior e inferior) se acomoden respecto a ésta línea central " */
     position: relative;
+
     content: "";
     width: 20px;
     height: 2px;
     background-color: black;
     /* OPCIONAL */
     margin: 1.4rem 1rem;
+
     /* OPCIONAL */
     transition: background-color .2s;
 }
+/* Creamos la línea de arriba de la "hamburguesa" */
 header label span::before{
     display: block;
+    /* Le damos posición abosoluta para que se acomode respecto a la línea central que tenía asignada un posición relativa  */
     position: absolute;
-    
+
     content: "";
     top:  -5px;
     width: 100%;
@@ -38,9 +48,12 @@ header label span::before{
     /* OPCIONAL */
     transition: transform .2s ease-out;
 }
+/* Creamos la línea de abajo de la "hamburguesa" */
 header label span::after{
     display: block;
+    /* Le damos posición abosoluta para que se acomode respecto a la línea central que tenía asignada un posición relativa  */
     position: absolute;
+    
     content: "";
     bottom: -5px;
     width: 100%;
@@ -63,6 +76,8 @@ header nav {
 }
 header nav ul{
     background-color: blue;
+
+    /* Le indicamos la la lista <ul> que si alto máximo sea 0px, y de esa forma no será visible cuando la "hamburguesa" no esté marcada */
     max-height: 0px;
 
     /* Overflow indica cómo manejaremos el contenido que desborde del contenedor. En este caso su valor es "hidden" (lo oculta) */
@@ -73,6 +88,7 @@ header nav ul{
 }
 /* Selecciona cada elemento <ul> que es precedido por un elemento <input> con la pseudo-clase "chhecked */
 header input:checked ~ nav ul{
+    /* Le indicamos la la lista <ul> que si alto máximo sea 240px, y de esa forma si será visible cuando la "hamburguesa" esté marcada */
     max-height: 240px;
 }
 
@@ -90,8 +106,6 @@ header input:checked ~ label span::after{
     transform: rotate(45deg);
     top: 0;
 }
-
-
 
 /* MEDIA QUERY */
 @media (min-width: 768px){
