@@ -29,6 +29,7 @@ header label span{
 header label span::before{
     display: block;
     position: absolute;
+    
     content: "";
     top:  -5px;
     width: 100%;
